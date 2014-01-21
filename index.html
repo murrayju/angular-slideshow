@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Slideshow</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Prevent this page from being cached -->
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="-1" />
+	
+	<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/angular-motion.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap-additions.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+
+	<body ng-controller="SlidesCtrl">
+
+        <header>
+            <button class="btn btn-default" ng-click="showMenu()">
+                <i class="fa fa-bars fa-2x"></i>
+            </button>
+        </header>
+
+		<div class="full-frame" ui-view></div>
+
+        <footer>
+            <div class="col-sm-6 text-left">
+                <button class="btn btn-default" ng-click="prevSlide()" ng-show="hasPrev()">
+                    <i class="fa fa-arrow-left fa-4x"></i>
+                </button>
+            </div>
+            <div class="col-sm-6 text-right">
+                <button class="btn btn-default" ng-click="nextSlide()" ng-show="hasNext()">
+                    <i class="fa fa-arrow-right fa-4x"></i>
+                </button>
+            </div>
+        </footer>
+
+		<script src="/bower_components/requirejs/require.js" data-main="js/app"></script>
+	</body>
+</html>

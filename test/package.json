@@ -1,0 +1,9 @@
+{
+	"name": "webAppTestServer",
+	"description": "Runs a test server",
+	"version": "0.0.0",
+	"private": true,
+	"dependencies": {
+		"connect": "2.x"
+	}
+}

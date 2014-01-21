@@ -1,0 +1,69 @@
+@charset "UTF-8";
+
+/* angularjs cloaking */
+script, .ng-cloak {
+    display: none;
+}
+
+header {
+    display: block;
+    width: 100%;
+    position: fixed;
+    padding: 5px;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1024;
+}
+
+header button {
+    opacity: 0.3;
+}
+
+header button:hover {
+    opacity: 0.9;
+}
+
+div.full-frame {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+footer {
+    display: block;
+    width: 100%;
+    position: fixed;
+    padding: 5px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1024;
+}
+
+footer button {
+    opacity: 0.3;
+}
+
+footer button:hover {
+    opacity: 0.9;
+}
+
+.menu-item:hover {
+    text-decoration: none;
+}
+
+.menu-item-parent {
+    font-size: 18px;
+}
+
+centered {
+    height: 100%;
+    width: 100%;
+    display: table;
+}
+.angular-centered {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}

@@ -1,0 +1,36 @@
+{
+  "name": "angular-seed",
+  "version": "0.0.0",
+  "authors": [
+    "Justin Murray <murrayju@addpcs.com>"
+  ],
+  "description": "A seed project for angularjs web applications",
+  "main": "js/app.js",
+  "keywords": [
+    "angularjs",
+    "requirejs",
+    "bootstrap",
+    "seed"
+  ],
+  "license": "MIT",
+  "homepage": "http://github.com/murrayju",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "*",
+    "angular": "*",
+	 "angular-animate": "*",
+    "jquery": "*",
+    "bootstrap": "*",
+    "angular-ui-router": "*",
+    "fastclick": "*",
+    "font-awesome": "*",
+    "angular-strap": "~2.0.0"
+  }
+}

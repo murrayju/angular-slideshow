@@ -1,0 +1,24 @@
+<div class="aside" tabindex="-1" role="dialog">
+    <script type="text/ng-template" id="tree_item_renderer.html">
+        <a class="menu-item" ng-class="{'menu-item-parent': !slide.parent}" ng-click="slide.go(); $hide()">{{slide.path}}. {{slide.title}}</a>
+        <ul ng-if="slide.children">
+            <li ng-repeat="slide in slide.children" ng-include="'tree_item_renderer.html'"></li>
+        </ul>
+    </script>
+
+    <div class="aside-dialog">
+        <div class="aside-content">
+            <div class="aside-header">
+                <button type="button" class="close" ng-click="$hide()">×</button>
+                <h3 class="aside-title">Contents</h3>
+            </div>
+            <div class="aside-body" ng-controller="SlideMenuCtrl">
+                <div ng-repeat="slide in slides" ng-include="'tree_item_renderer.html'"></div>
+            </div>
+            <div class="aside-footer">
+                <button type="button" class="btn btn-default" ng-click="$hide()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
