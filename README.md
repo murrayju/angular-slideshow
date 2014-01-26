@@ -1,6 +1,8 @@
 # angular-slideshow
 This is a simple angularjs slideshow app, for those who prefer to create slides in html over PowerPoint.
 
+[Live Demo](http://murrayju.github.io/angular-slideshow/)
+
 ## Prerequisites
 
 + [Node](http://nodejs.org/)
