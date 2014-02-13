@@ -17,26 +17,18 @@
 
 	<body ng-controller="SlidesCtrl">
 
-        <header>
-            <button class="btn btn-default" ng-click="showMenu()">
-                <i class="fa fa-bars fa-2x"></i>
-            </button>
-        </header>
+        <button class="btn btn-default slide-nav slide-nav-menu" ng-click="showMenu()">
+            <i class="fa fa-bars fa-2x"></i>
+        </button>
 
 		<div class="full-frame" ui-view></div>
 
-        <footer>
-            <div class="col-sm-6 text-left">
-                <button class="btn btn-default" ng-click="prevSlide()" ng-show="hasPrev()">
-                    <i class="fa fa-arrow-left fa-4x"></i>
-                </button>
-            </div>
-            <div class="col-sm-6 text-right">
-                <button class="btn btn-default" ng-click="nextSlide()" ng-show="hasNext()">
-                    <i class="fa fa-arrow-right fa-4x"></i>
-                </button>
-            </div>
-        </footer>
+        <button class="btn btn-default slide-nav slide-nav-left" ng-click="prevSlide()" ng-show="hasPrev()">
+            <i class="fa fa-arrow-left fa-3x"></i>
+        </button>
+        <button class="btn btn-default slide-nav slide-nav-right" ng-click="nextSlide()" ng-show="hasNext()">
+            <i class="fa fa-arrow-right fa-3x"></i>
+        </button>
 
 		<script src="bower_components/requirejs/require.js" data-main="js/app"></script>
 	</body>

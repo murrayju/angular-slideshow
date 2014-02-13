@@ -5,48 +5,35 @@ script, .ng-cloak {
     display: none;
 }
 
-header {
-    display: block;
-    width: 100%;
-    position: fixed;
-    padding: 5px;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1024;
-}
-
-header button {
-    opacity: 0.3;
-}
-
-header button:hover {
-    opacity: 0.9;
-}
-
 div.full-frame {
     width: 100%;
     height: 100%;
     position: absolute;
 }
 
-footer {
-    display: block;
-    width: 100%;
+.slide-nav {
     position: fixed;
-    padding: 5px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1024;
-}
-
-footer button {
     opacity: 0.3;
+    z-index: 999999;
 }
 
-footer button:hover {
+.slide-nav:hover {
     opacity: 0.9;
+}
+
+.slide-nav-menu {
+    top: 5px;
+    left: 5px;
+}
+
+.slide-nav-left {
+    bottom: 5px;
+    left: 5px;
+}
+
+.slide-nav-right {
+    bottom: 5px;
+    right: 5px;
 }
 
 .menu-item:hover {
