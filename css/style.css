@@ -14,7 +14,7 @@ div.full-frame {
 .slide-nav {
     position: fixed;
     opacity: 0.3;
-    z-index: 999999;
+    z-index: 1024;
 }
 
 .slide-nav:hover {
@@ -42,6 +42,10 @@ div.full-frame {
 
 .menu-item-parent {
     font-size: 18px;
+}
+
+.menu-item-selected {
+    background: rgba(255, 251, 204, 0.9);
 }
 
 centered {

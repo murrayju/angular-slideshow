@@ -1,9 +1,12 @@
-define([],	function () {
+/*jslint browser:true */
+/*global define*/
+
+define(['angular'],	function (angular) {
+    'use strict';
+    
 	var ctrl = {};
 
-	ctrl.SlidesCtrl = ['$scope', '$aside', 'SlideSvc', 'MessageService', function ($scope, $aside, SlideSvc, msg) {
-		$scope.msg = msg;
-
+	ctrl.SlidesCtrl = ['$scope', '$aside', 'SlideSvc', function ($scope, $aside, SlideSvc) {
 		$scope.nextSlide = function () {
 			var next = SlideSvc.nextSlide();
 			if (next) {
@@ -24,7 +27,7 @@ define([],	function () {
 
 		$scope.hasNext = function () {
 			return SlideSvc.nextSlide();
-		}
+		};
 
 		var menu = $aside({
 			template: 'menu.html',
@@ -53,8 +56,9 @@ define([],	function () {
 		});
 	}];
 
-	ctrl.SlideMenuCtrl = ['$scope', 'Slides', function ($scope, Slides) {
+	ctrl.SlideMenuCtrl = ['$scope', 'Slides', 'SlideSvc', function ($scope, Slides, SlideSvc) {
 		$scope.slides = Slides;
+        $scope.slideSvc = SlideSvc;
 	}];
 
 	ctrl.P1Ctrl = ['$scope', function ($scope) {

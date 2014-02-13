@@ -1,54 +1,15 @@
-define(['slides'], function (slides) {
+/*jslint browser:true, vars:true */
+/*global define*/
+
+define(['slides', 'angular'], function (slides, angular) {
+    'use strict';
+    
 	var factory = {};
-
-	factory.MessageService = ['$timeout', function ($timeout) {
-		var svc = {
-			autoDismiss: 5000,
-			messages: []
-		};
-
-		svc.add = function (err, txt) {
-			var msg = {
-				error: err,
-				txt: txt,
-				dismissed: false
-			};
-			svc.messages.push(msg);
-
-			if (svc.autoDismiss) {
-				$timeout(function () {
-					msg.dismissed = true;
-				}, svc.autoDismiss);
-			}
-		};
-
-		svc.error = function (txt) {
-			svc.add(true, txt);
-		};
-
-		svc.success = function (txt) {
-			svc.add(false, txt);
-		};
-
-		svc.clear = function () {
-			svc.messages.length = 0;
-		};
-
-		svc.last = function () {
-			if (svc.messages.length === 0) { return false; }
-
-			var msg = svc.messages[svc.messages.length - 1];
-			return msg.dismissed ? false : msg;
-		};
-
-		return svc;
-	}];
 
 	factory.Slides = ['$state', function ($state) {
 		// build references for easier navigation
 		var processLevel = function (root, parent) {
-			var i = 0;
-			var prev = parent;
+			var i = 0, prev = parent;
 			angular.forEach(root, function (n) {
 				n.parent = parent;
 
@@ -57,7 +18,7 @@ define(['slides'], function (slides) {
 				} else {
 					n.path = parent.path.concat('.').concat(i.toString());
 				}
-				i++;
+				i += 1;
 
 				n.go = function () {
 					$state.go('slide', {path: n.path});
@@ -85,11 +46,11 @@ define(['slides'], function (slides) {
 		svc.currentSlide = function () {
 			if (!$stateParams.path) { return false; }
 			var path = $stateParams.path.split('.');
-
 			var slide = false;
 			var children = Slides;
-			for (var i=0; i<path.length; i++) {
-				var num = parseInt(path[i]);
+            var num, i;
+			for (i = 0; i < path.length; i += 1) {
+				num = parseInt(path[i], 10);
 				if (!children || (num > children.length)) {
 					return false;
 				}

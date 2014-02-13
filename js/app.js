@@ -1,3 +1,6 @@
+/*jslint browser:true */
+/*global requirejs*/
+
 // define the dependencies with requirejs
 requirejs.config({
 	baseUrl: 'js',
@@ -30,6 +33,8 @@ requirejs.config({
 // This is the main application entry point
 // bootstraps the angularjs app with the dom
 requirejs(['angular', 'configuration', 'services', 'directives', 'controllers', 'fastclick', 'angular.ui.router', 'jquery.bootstrap', 'angular-strap-tpl'], function (angular, config, svc, dir, ctrl, fastclick) {
+    'use strict';
+    
 	angular.element().ready(function () {
 
 		var mod = angular.module('MainAppModule', ['ui.router', 'ngAnimate', 'mgcrea.ngStrap'])

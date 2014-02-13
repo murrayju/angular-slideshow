@@ -1,6 +1,7 @@
+<!doctype html>
 <div class="aside" tabindex="-1" role="dialog">
     <script type="text/ng-template" id="tree_item_renderer.html">
-        <a class="menu-item" ng-class="{'menu-item-parent': !slide.parent}" ng-click="slide.go(); $hide()">{{slide.path}}. {{slide.title}}</a>
+        <a class="menu-item" ng-class="{'menu-item-parent': !slide.parent, 'menu-item-selected': slide === slideSvc.currentSlide()}" ng-click="slide.go(); $hide()">{{slide.path}}. {{slide.title}}</a>
         <ul ng-if="slide.children">
             <li ng-repeat="slide in slide.children" ng-include="'tree_item_renderer.html'"></li>
         </ul>
