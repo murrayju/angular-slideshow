@@ -3,14 +3,15 @@
 <script type="text/ng-template" id="index.html-1">
     <div ng-controller="MyCtrl">
         <h3 style="margin-top: 0;">{{myTitle}}</h3>
-        <input class="form-control" type="text" ng-model="myTitle" value="Hello World"/>
+        <input class="form-control" type="text" ng-model="myTitle"/>
     </div>
 </script>
 
 <script type="text/ng-template" id="script.js-1">
-    function MyCtrl($scope) {
-        $scope.myTitle = 'Hello World';
-    }
+    angular.module('myApp', [])
+        .controller('MyCtrl', ['$scope', function ($scope) {
+            $scope.myTitle = 'Hello World';
+        }]);
 </script>
 
 <div class="container text-left">
@@ -20,7 +21,7 @@
     <h4>Code</h4>
     <div class="tabbable">
         <div class="tab-pane" title="index.html">
-            <pre class="prettyprint linenums" ng-set-text="index.html-1" ng-html-wrap="angular.js script.js"></pre>
+            <pre class="prettyprint linenums" ng-set-text="index.html-1" ng-html-wrap="myApp angular.js script.js"></pre>
         </div>
 
         <div class="tab-pane" title="script.js">
@@ -29,5 +30,5 @@
     </div>
 
     <h4>Demo</h4>
-    <div class="well" ng-set-html="index.html-1" ng-eval-javascript="script.js-1"></div>
+    <div class="well" ng-embed-app="myApp" ng-set-html="index.html-1" ng-eval-javascript="script.js-1"></div>
 </div>
