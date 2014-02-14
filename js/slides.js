@@ -6,9 +6,9 @@ define([], function () {
     'use strict';
 
 	return [
-		{title: 'The First Page', url: 'slides/p1.html'},
-		{title: 'The Second Page', url: 'slides/p2.html', children: [
-			{title: 'A child page', url: 'slides/p2.1.html'}
-		]}
+        {title: 'Title', url: 'slides/title.html'},
+        {title: 'What is it?', url: 'slides/what.html'},
+        {title: 'How does it work?', url: 'slides/how.html'},
+        {title: 'A simple example', url: 'slides/helloWorld.html'}
 	];
 });

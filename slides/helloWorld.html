@@ -1,0 +1,33 @@
+<!doctype html>
+
+<script type="text/ng-template" id="index.html-1">
+    <div ng-controller="MyCtrl">
+        <h3 style="margin-top: 0;">{{myTitle}}</h3>
+        <input class="form-control" type="text" ng-model="myTitle" value="Hello World"/>
+    </div>
+</script>
+
+<script type="text/ng-template" id="script.js-1">
+    function MyCtrl($scope) {
+        $scope.myTitle = 'Hello World';
+    }
+</script>
+
+<div class="container text-left">
+    <h1>A simple example</h1>
+    <p>This demonstrates a simple data binding between two html elements. Edit the content of the input box, and see the &lt;h3&gt; updated in real time.</p>
+
+    <h4>Code</h4>
+    <div class="tabbable">
+        <div class="tab-pane" title="index.html">
+            <pre class="prettyprint linenums" ng-set-text="index.html-1" ng-html-wrap="angular.js script.js"></pre>
+        </div>
+
+        <div class="tab-pane" title="script.js">
+            <pre class="prettyprint linenums" ng-set-text="script.js-1"></pre>
+        </div>
+    </div>
+
+    <h4>Demo</h4>
+    <div class="well" ng-set-html="index.html-1" ng-eval-javascript="script.js-1"></div>
+</div>

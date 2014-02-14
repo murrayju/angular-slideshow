@@ -24,7 +24,7 @@
   ],
   "dependencies": {
     "requirejs": "*",
-    "angular": "*",
+    "angular": "1.2.12",
     "angular-animate": "*",
     "jquery": "*",
     "bootstrap": "*",
@@ -32,6 +32,7 @@
     "fastclick": "*",
     "font-awesome": "*",
     "angular-strap": "~2.0.0",
-    "angular-motion": "*"
+    "angular-motion": "*",
+    "google-code-prettify": "~1.0.1"
   }
 }
