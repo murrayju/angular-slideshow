@@ -2,6 +2,14 @@
 <div class="container text-left">
     <h1>Controllers</h1>
     <ul>
-        <li></li>
+        <li>Controllers are defined as a constructor function</li>
+        <li>Whenever a <code>ngController</code> directive is found in the DOM, a new controller is instantiated</li>
+        <li>A new child scope is created, and injected into the Controller's constructor</li>
+        <li>The controller is responsible for setting up the initial state of the <code>$scope</code> object</li>
+        <li>The controller can also add behavior to the <code>$scope</code>, by adding functions to the object</li>
+        <li>Controllers and Directives both have a reference to a <code>$scope</code>, but not to each other.</li>
+        <ul><li>This makes the controllers view agnostic, enforcing the separation of concerns, and improving testability</li></ul>
+        <li>A controller shouldn't try to do too much. It should only contain the business logic needed for a single view</li>
+        <li>A controller should not do any kind of DOM manipulation. (That's what directives are for)</li>
     </ul>
 </div>

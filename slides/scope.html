@@ -1,0 +1,14 @@
+<!doctype html>
+<div class="container text-left">
+    <h1>$scope</h1>
+    <p>A scope is an object that houses the application model.</p>
+    <ul>
+        <li>An Angular application has exactly one <strong>root</strong> scope</li>
+        <li>Directives are <strong>linked</strong> to a scope during compilation</li>
+        <li>Child scopes inherit properties prototypically from their parent</li>
+        <li>This forms a hierarchy that often mimics the structure of the DOM</li>
+        <li>Many directives create their own scope (which may or may not be isolated from their parent)</li>
+        <li>Expressions in the DOM are evaluated in the context of a scope</li>
+        <li>During linking, <code>$watch</code> expressions are created on scope properties. This effectively binds the view to the data model.</li>
+    </ul>
+</div>

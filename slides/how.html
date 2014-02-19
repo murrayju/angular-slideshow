@@ -10,7 +10,16 @@
         </ul>
         <li>Angular gets most of its power as an extension of the DOM</li>
         <ul>
-            <li>Other frameworks try to work around the DOM, with less impressive results</li>
+            <li>Angular consumes the DOM, not string templates</li>
+            <li>This two way linking results in a "live view"</li>
+            <li>The binding is transparent. The developer does not need to make any special calls to refresh the view</li>
+            <li>Other templating frameworks try to work around the DOM, with less impressive results.</li>
+            <ul>
+                <li>Consume a static string template</li>
+                <li>Combine it with data to produce a new string</li>
+                <li>Inject the new string back into an element using <code>innerHTML</code></li>
+                <li>Any changes to the data model require the template to be re-processed</li>
+            </ul>
         </ul>
     </ul>
 </div>

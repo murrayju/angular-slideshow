@@ -14,8 +14,10 @@ define([], function () {
             {title: 'ngBind', url: 'slides/directive.ngBind.html'},
             {title: 'ngClick', url: 'slides/directive.ngClick.html'},
             {title: 'ngRepeat', url: 'slides/directive.ngRepeat.html'},
-            {title: 'ngHide, ngShow, ngIf', url: 'slides/directive.ngHide.html'}
+            {title: 'ngHide, ngShow, ngIf', url: 'slides/directive.ngHide.html'},
+            {title: 'Custom Directives', url: 'slides/directive.custom.html'}
         ]},
+        {title: '$scope', url: 'slides/scope.html'},
         {title: 'Controllers', url: 'slides/controllers.html'},
         {title: 'Services', url: 'slides/services.html'},
         {title: 'Routing', url: 'slides/routing.html'},

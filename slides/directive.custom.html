@@ -1,0 +1,50 @@
+<!doctype html>
+
+<script type="text/ng-template" id="index.html-6">
+    <div ng-controller="MyCtrl">
+        <my-customer ng-repeat="p in people" name="p.name" address="p.address"></my-customer>
+    </div>
+</script>
+
+<script type="text/ng-template" id="script.js-6">
+    angular.module('myApp', [])
+        .controller('MyCtrl', function ($scope) {
+            $scope.people = [
+                { name: 'Some Guy', address: '123 Fake St' },
+                { name: 'Some Girl', address: '456 Fake Dr' },
+                { name: 'Frank Dude', address: '789 Fake Ln' }
+            ];
+        })
+        .directive('myCustomer', function () {
+            return {
+                restrict: 'E',
+                scope: {
+                    name: '=',
+                    address: '='
+                },
+                template: '<div>{{name}} lives at {{address}}.</div>'
+            };
+        });
+</script>
+
+<div class="container text-left">
+    <h1>Custom Directives</h1>
+    <ul>
+        <li>Encapsulate a reusable behavior and/or template as a custom element or attribute</li>
+        <li>Directives can create their own isolated scope</li>
+        <li>DOM attributes can be used to bind with external data</li>
+    </ul>
+
+    <div class="tabbable">
+        <div class="tab-pane" title="script.js">
+            <pre class="prettyprint linenums" ng-set-text="script.js-6"></pre>
+        </div>
+
+        <div class="tab-pane" title="index.html">
+            <pre class="prettyprint linenums" ng-set-text="index.html-6" ng-html-wrap="myApp angular.js script.js"></pre>
+        </div>
+    </div>
+
+    <h4>Demo</h4>
+    <div class="well" ng-embed-app="myApp" ng-set-html="index.html-6" ng-eval-javascript="script.js-6"></div>
+</div>
