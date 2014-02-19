@@ -1,0 +1,49 @@
+<!doctype html>
+
+<script type="text/ng-template" id="index.html-2">
+    <div ng-controller="MyCtrl">
+        <div ng-bind="counter"></div>
+        <div style="font-size: {{counter}}px;">
+            The curly brace syntax can be used inline... {{counter | number:1}}
+            ...just about anywhere!
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="script.js-2">
+    angular.module('myApp', [])
+        .controller('MyCtrl', function ($scope, $interval) {
+            var increment = 0.1;
+            $scope.counter = 10;
+
+            $interval(function () {
+                $scope.counter += increment;
+                if ($scope.counter >= 24 || $scope.counter <= 10) {
+                    increment = increment * -1;
+                }
+            }, 10);
+        });
+</script>
+
+<div class="container text-left">
+    <h1>ngBind</h1>
+    <p>a built in Angular directive</p>
+    <ul>
+        <li>Used to replace the text content of an html element</li>
+        <li>Creates a one-way data binding from the data model to the view</li>
+        <li>Most commonly used through shorthand double curly markup <code>{{expression}}</code></li>
+    </ul>
+
+    <div class="tabbable">
+        <div class="tab-pane" title="index.html">
+            <pre class="prettyprint linenums" ng-set-text="index.html-2" ng-html-wrap="myApp angular.js script.js"></pre>
+        </div>
+
+        <div class="tab-pane" title="script.js">
+            <pre class="prettyprint linenums" ng-set-text="script.js-2"></pre>
+        </div>
+    </div>
+
+    <h4>Demo</h4>
+    <div class="well" ng-embed-app="myApp" ng-set-html="index.html-2" ng-eval-javascript="script.js-2"></div>
+</div>

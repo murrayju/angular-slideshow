@@ -1,0 +1,39 @@
+<!doctype html>
+
+<script type="text/ng-template" id="index.html-3">
+    <div ng-controller="MyCtrl">
+        <button ng-click="increment()">+</button>
+        <button ng-click="count = count - 1">-</button>
+        count: {{count}}
+    </div>
+</script>
+
+<script type="text/ng-template" id="script.js-3">
+    angular.module('myApp', [])
+        .controller('MyCtrl', function ($scope, $interval) {
+            $scope.count = 0;
+
+            $scope.increment = function () { $scope.count++; };
+        });
+</script>
+
+<div class="container text-left">
+    <h1>ngClick</h1>
+    <p>a built in Angular directive</p>
+    <ul>
+        <li>Attaches behavior to the click event on an element</li>
+    </ul>
+
+    <div class="tabbable">
+        <div class="tab-pane" title="index.html">
+            <pre class="prettyprint linenums" ng-set-text="index.html-3" ng-html-wrap="myApp angular.js script.js"></pre>
+        </div>
+
+        <div class="tab-pane" title="script.js">
+            <pre class="prettyprint linenums" ng-set-text="script.js-3"></pre>
+        </div>
+    </div>
+
+    <h4>Demo</h4>
+    <div class="well" ng-embed-app="myApp" ng-set-html="index.html-3" ng-eval-javascript="script.js-3"></div>
+</div>

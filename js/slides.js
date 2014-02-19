@@ -10,7 +10,12 @@ define([], function () {
         {title: 'What is it?', url: 'slides/what.html'},
         {title: 'How does it work?', url: 'slides/how.html'},
         {title: 'A simple example', url: 'slides/helloWorld.html'},
-        {title: 'Directives', url: 'slides/directives.html'},
+        {title: 'Directives', url: 'slides/directives.html', children: [
+            {title: 'ngBind', url: 'slides/directive.ngBind.html'},
+            {title: 'ngClick', url: 'slides/directive.ngClick.html'},
+            {title: 'ngRepeat', url: 'slides/directive.ngRepeat.html'},
+            {title: 'ngHide, ngShow, ngIf', url: 'slides/directive.ngHide.html'}
+        ]},
         {title: 'Controllers', url: 'slides/controllers.html'},
         {title: 'Services', url: 'slides/services.html'},
         {title: 'Routing', url: 'slides/routing.html'},

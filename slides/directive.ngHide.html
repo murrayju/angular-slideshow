@@ -1,0 +1,44 @@
+<!doctype html>
+
+<script type="text/ng-template" id="index.html-5">
+    <div ng-controller="MyCtrl">
+        <div class="checkbox">
+            <input type="checkbox" ng-model="boolVal"> boolVal
+        </div>
+        <div ng-show="boolVal" class="alert alert-success">ngShow</div>
+        <div ng-hide="boolVal" class="alert alert-warning">ngHide</div>
+        <div ng-if="boolVal" class="alert alert-danger">ngIf</div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="script.js-5">
+    angular.module('myApp', [])
+        .controller('MyCtrl', function ($scope) {
+            $scope.boolVal = true;
+        });
+</script>
+
+<div class="container text-left">
+    <h1>ngHide, ngShow, ngIf</h1>
+    <p>built in Angular directives</p>
+    <ul>
+        <li>Evaluates a boolean expression to determine the visibility of an element</li>
+        <li>ngHide and ngShow use <code>display: none</code> css to hide</li>
+        <li>ngIf removes the element from the DOM entirely</li>
+        <ul><li>More appropriate when a change in state is unlikely</li></ul>
+        <ul><li>(manipulating the DOM is more costly than changing CSS properties)</li></ul>
+    </ul>
+
+    <div class="tabbable">
+        <div class="tab-pane" title="index.html">
+            <pre class="prettyprint linenums" ng-set-text="index.html-5" ng-html-wrap="myApp angular.js script.js"></pre>
+        </div>
+
+        <div class="tab-pane" title="script.js">
+            <pre class="prettyprint linenums" ng-set-text="script.js-5"></pre>
+        </div>
+    </div>
+
+    <h4>Demo</h4>
+    <div class="well" ng-embed-app="myApp" ng-set-html="index.html-5" ng-eval-javascript="script.js-5"></div>
+</div>

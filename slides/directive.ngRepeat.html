@@ -1,0 +1,52 @@
+<!doctype html>
+
+<script type="text/ng-template" id="index.html-4">
+    <div ng-controller="MyCtrl">
+        <button ng-click="insert()">Add another</button>
+        <ul>
+            <li ng-repeat="item in items">
+                <button ng-click="items.splice($index, 1)">x</button>
+                {{item.name}} is {{item.age}} years old
+            </li>
+        </ul>
+    </div>
+</script>
+
+<script type="text/ng-template" id="script.js-4">
+    angular.module('myApp', [])
+        .controller('MyCtrl', function ($scope) {
+            $scope.items = [
+                { name: 'Bob', age: 55 },
+                { name: 'Jane', age: 37 },
+                { name: 'Jim', age: 29 }
+            ];
+
+            $scope.insert = function () {
+                $scope.items.push({ name: 'Frank', age: 77 });
+            };
+        });
+</script>
+
+<div class="container text-left">
+    <h1>ngRepeat</h1>
+    <p>a built in Angular directive</p>
+    <ul>
+        <li>Treats the element and its children as a template</li>
+        <li>Iterates over the given collection, and clones the template DOM for each item</li>
+        <li>Each template instance gets its own scope, with the loop variable assigned the current item</li>
+        <li>The template is written relative to a single item</li>
+    </ul>
+
+    <div class="tabbable">
+        <div class="tab-pane" title="index.html">
+            <pre class="prettyprint linenums" ng-set-text="index.html-4" ng-html-wrap="myApp angular.js script.js"></pre>
+        </div>
+
+        <div class="tab-pane" title="script.js">
+            <pre class="prettyprint linenums" ng-set-text="script.js-4"></pre>
+        </div>
+    </div>
+
+    <h4>Demo</h4>
+    <div class="well" ng-embed-app="myApp" ng-set-html="index.html-4" ng-eval-javascript="script.js-4"></div>
+</div>
