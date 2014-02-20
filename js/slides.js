@@ -19,12 +19,19 @@ define([], function () {
         ]},
         {title: '$scope', url: 'slides/scope.html'},
         {title: 'Controllers', url: 'slides/controllers.html'},
-        {title: 'Services', url: 'slides/services.html'},
-        {title: 'Routing', url: 'slides/routing.html'},
+        {title: 'Services', url: 'slides/services.html', children: [
+            {title: '$location', url: 'slides/service.location.html'},
+        ]},
+        {title: 'Routing', url: 'slides/routing.html', children: [
+            {title: 'Demo', url: 'slides/routing.demo.html'}
+        ]},
         {title: 'Promises', url: 'slides/promises.html', children: [
             {title: '$http', url: 'slides/http.html'}
         ]},
+        {title: 'Filters', url: 'slides/filters.html'},
         {title: 'Modules', url: 'slides/modules.html'},
+        {title: 'jQuery', url: 'slides/jquery.html'},
+        {title: 'Other Topics', url: 'slides/other.html'},
         {title: 'Questions?', url: 'slides/end.html'}
 	];
 });

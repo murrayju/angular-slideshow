@@ -1,0 +1,21 @@
+<!doctype html>
+<div class="container text-left">
+    <h1>What about jQuery?</h1>
+
+    <ul>
+        <li>You don't really need it any more</li>
+        <li>Angular ships with jqLite</li>
+        <ul>
+            <li>This is a stripped down version of jQuery</li>
+            <li>Only the essentials (DOM selectors and manipulators mostly)</li>
+            <li>Used by the internals of Angular</li>
+            <li>Exposed as <code>angular.element()</code></li>
+        </ul>
+        <li>If you include jQuery first, Angular will use it instead of jqLite</li>
+        <li>Angular completely restructures the way you write applications.</li>
+        <ul>
+            <li>If you find yourself using jQuery to search the DOM to find some element, you are probably doing something wrong (the hard way).</li>
+            <li>Use a directive and/or some data binding instead.</li>
+        </ul>
+    </ul>
+</div>

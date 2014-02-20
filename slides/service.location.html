@@ -1,0 +1,43 @@
+<!doctype html>
+
+<script type="text/ng-template" id="index.html-7">
+    <div ng-controller="MyCtrl">
+        $location.absUrl() = {{$location.absUrl()}}<br/>
+        $location.protocol() = {{$location.protocol()}}<br/>
+        $location.host() = {{$location.host()}}<br/>
+        $location.port() = {{$location.port()}}<br/>
+        $location.path() = {{$location.path()}}<br/>
+        $location.search() = {{$location.search()}}<br/>
+    </div>
+</script>
+
+<script type="text/ng-template" id="script.js-7">
+    angular.module('myApp', [])
+        .controller('MyCtrl', function ($scope, $location) {
+            $scope.$location = $location;
+        });
+</script>
+
+<div class="container text-left">
+    <h1>$location</h1>
+    <p>a built in Angular service</p>
+    <ul>
+        <li>This service binds to the browser's URL (based on <code>window.location</code>), and provides an api to work with</li>
+        <li>Can be used to watch and observe the URL, as well as change it</li>
+        <ul><li>It <em>does not</em> trigger a page reload when the URL is changed.</li></ul>
+        <li>Provides convenience methods to parse and work with the various parts of the url (protocol, host, port, path, search, hash)</li>
+    </ul>
+
+    <div class="tabbable">
+        <div class="tab-pane" title="index.html">
+            <pre class="prettyprint linenums" ng-set-text="index.html-7" ng-html-wrap="myApp angular.js script.js"></pre>
+        </div>
+
+        <div class="tab-pane" title="script.js">
+            <pre class="prettyprint linenums" ng-set-text="script.js-7"></pre>
+        </div>
+    </div>
+
+    <h4>Demo</h4>
+    <div class="well" ng-embed-app="myApp" ng-set-html="index.html-7" ng-eval-javascript="script.js-7"></div>
+</div>

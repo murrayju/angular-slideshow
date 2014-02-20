@@ -1,7 +1,14 @@
 <!doctype html>
 <div class="container text-left">
     <h1>Services</h1>
+    <p>A service is a singleton object that is used to carry out specific tasks.</p>
     <ul>
-        <li></li>
+        <li>Services are meant to be very modular and reusable</li>
+        <li>Can provide common functionality to other parts of the application</li>
+        <li>Can be used to share context between other parts of the application</li>
+        <li>Angular comes with many built in services, and you can create your own</li>
+        <li>Services <em>do not</em> have a <code>$scope</code></li>
+        <li>Controllers, Directives, and other Services can depend on a service</li>
+        <ul><li>Angular's dependency injection system injects the service as a parameter to the object's Constructor</li></ul>
     </ul>
 </div>

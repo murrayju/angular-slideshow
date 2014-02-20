@@ -1,0 +1,67 @@
+<!doctype html>
+
+<script type="text/ng-template" id="index.html-8">
+    <button ui-sref="slide.demo1">Alabama</button>
+    <button ui-sref="slide.demo2">Alaska</button>
+    <div ui-view></div>
+</script>
+
+<script type="text/ng-template" id="demo1.html-8">
+    <h1>Alabama</h1>
+</script>
+
+<script type="text/ng-template" id="demo2.html-8">
+    <h1>Alaska</h1>
+</script>
+
+<script type="text/ng-template" id="script.js-8">
+    angular.module('myApp', ['ui.router'])
+        .config(function ($stateProvider) {
+            // This is executed when the module loads - used to initialize services
+            $stateProvider
+                .state('slide.demo1', {
+                    url: "/alabama",
+                    templateUrl: "demo1.html"
+                })
+                .state('slide.demo2', {
+                    url: "/alaska",
+                    templateUrl: "demo2.html"
+                });
+        })
+</script>
+
+<div class="container text-left">
+    <h1>Routing Demo</h1>
+    <p>Demonstrates nested states with different views</p>
+    <ul>
+        <li>Each state is given a name, which is used as a reference in apis</li>
+        <li>Each state gets its own URL, view template, and controller</li>
+        <li>The URL can optionally contain parameters, which are accessed through the <code>$stateParams</code> service.</li>
+    </ul>
+
+    <div class="tabbable">
+        <div class="tab-pane" title="script.js">
+            <pre class="prettyprint linenums" ng-set-text="script.js-8"></pre>
+        </div>
+
+        <div class="tab-pane" title="index.html">
+            <pre class="prettyprint linenums" ng-set-text="index.html-8"></pre>
+        </div>
+
+        <div class="tab-pane" title="demo1.html">
+            <pre class="prettyprint linenums" ng-set-text="demo1.html-8"></pre>
+        </div>
+
+        <div class="tab-pane" title="demo2.html">
+            <pre class="prettyprint linenums" ng-set-text="demo2.html-8"></pre>
+        </div>
+
+    </div>
+
+    <h4>Demo</h4>
+    <div class="well">
+        <button ui-sref="slide.demo1">Alabama</button>
+        <button ui-sref="slide.demo2">Alaska</button>
+        <div ui-view></div>
+    </div>
+</div>

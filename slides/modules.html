@@ -1,7 +1,57 @@
 <!doctype html>
+
+<script type="text/ng-template" id="index.html-10">
+    <div ng-controller="MyCtrl">
+        Search: <input ng-model="searchText">
+        <table class="table">
+            <tr><th>Name</th><th>Phone</th></tr>
+            <tr ng-repeat="friend in friends | filter:searchText">
+                <td>{{friend.name}}</td>
+                <td>{{friend.phone}}</td>
+            </tr>
+        </table>
+    </div>
+</script>
+
+<script type="text/ng-template" id="script.js-10">
+    angular.module('myModule', [])
+            .factory('$dataProvider', function () {
+                return [
+                    {name:'John', phone:'555-1276'},
+                    {name:'Mary', phone:'800-BIG-MARY'},
+                    {name:'Mike', phone:'555-4321'},
+                    {name:'Adam', phone:'555-5678'},
+                    {name:'Julie', phone:'555-8765'},
+                    {name:'Juliette', phone:'555-5678'}
+                ];
+            });
+
+    angular.module('myApp', ['myModule'])
+        .controller('MyCtrl', function ($scope, $dataProvider) {
+            $scope.friends = $dataProvider;
+        });
+</script>
+        
 <div class="container text-left">
     <h1>Modules</h1>
     <ul>
-        <li></li>
+        <li>Modules provide a way to package up a bundle of code to be used by other applications</li>
+        <li>A module is a named collection of services, directives, filters, and/or configuration information.</li>
+        <li>Modules are declared using <code>angular.module()</code></li>
+        <li>A module provides a list of dependent modules as part of its declaration</li>
+        <li>Angular's dependency injection framework resolves the dependencies</li>
     </ul>
+
+    <div class="tabbable">
+        <div class="tab-pane" title="index.html">
+            <pre class="prettyprint linenums" ng-set-text="index.html-10" ng-html-wrap="myApp angular.js script.js"></pre>
+        </div>
+
+        <div class="tab-pane" title="script.js">
+            <pre class="prettyprint linenums" ng-set-text="script.js-10"></pre>
+        </div>
+    </div>
+
+    <h4>Demo</h4>
+    <div class="well" ng-embed-app="myApp" ng-set-html="index.html-10" ng-eval-javascript="script.js-10"></div>
 </div>

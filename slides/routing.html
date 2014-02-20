@@ -1,7 +1,15 @@
 <!doctype html>
 <div class="container text-left">
     <h1>Routing</h1>
+    <p>Routing is the key to creating a robust, single page application</p>
     <ul>
-        <li></li>
+        <li>Routing allows your application to use the URL to dictate part of the application's state</li>
+        <li>Based on the URL path, you can change the view state of the application</li>
+        <li>This is accomplished without any page reloads, by using the part of the URL after <code>#</code>, combined with the browser history api</li>
+        <li>Provides the added benefit of deep linking to a specific view state in the application via a URL</li>
+        <li>Angular provides the <code>ngRoute</code> module</li>
+        <ul><li>This provides basic routing, but does not support nested views</li></ul>
+        <li>I prefer the 3rd party <a href="https://github.com/angular-ui/ui-router">AngularUI Router</a></li>
+        <ul><li>Has a more sophisticated, state based model, with arbitrary nesting</li></ul>
     </ul>
 </div>

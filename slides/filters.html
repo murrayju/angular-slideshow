@@ -1,0 +1,51 @@
+<!doctype html>
+
+<script type="text/ng-template" id="index.html-9">
+    <div ng-controller="MyCtrl">
+        Search: <input ng-model="searchText">
+        <table class="table">
+            <tr><th>Name</th><th>Phone</th></tr>
+            <tr ng-repeat="friend in friends | filter:searchText">
+                <td>{{friend.name}}</td>
+                <td>{{friend.phone}}</td>
+            </tr>
+        </table>
+    </div>
+</script>
+
+<script type="text/ng-template" id="script.js-9">
+    angular.module('myApp', [])
+        .controller('MyCtrl', function ($scope) {
+            $scope.friends = [
+                {name:'John', phone:'555-1276'},
+                {name:'Mary', phone:'800-BIG-MARY'},
+                {name:'Mike', phone:'555-4321'},
+                {name:'Adam', phone:'555-5678'},
+                {name:'Julie', phone:'555-8765'},
+                {name:'Juliette', phone:'555-5678'}
+            ];
+        });
+</script>
+
+<div class="container text-left">
+    <h1>Filters</h1>
+    <ul>
+        <li>Filters provide a way manipulate data as it is being bound to the view</li>
+        <li><code>{{data | filter}}</code></li>
+        <li>Uses include string formatting, list sorting, list filtering (eliminate entries)</li>
+        <li>Multiple filters can be chained together</li>
+    </ul>
+
+    <div class="tabbable">
+        <div class="tab-pane" title="index.html">
+            <pre class="prettyprint linenums" ng-set-text="index.html-9" ng-html-wrap="myApp angular.js script.js"></pre>
+        </div>
+
+        <div class="tab-pane" title="script.js">
+            <pre class="prettyprint linenums" ng-set-text="script.js-9"></pre>
+        </div>
+    </div>
+
+    <h4>Demo</h4>
+    <div class="well" ng-embed-app="myApp" ng-set-html="index.html-9" ng-eval-javascript="script.js-9"></div>
+</div>

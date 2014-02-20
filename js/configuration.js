@@ -11,7 +11,7 @@ define([], function () {
 
 		$stateProvider
 			.state('slide', {
-				url: '/slide/{path}',
+				url: '/slide/{path:[0-9]+(?:\\.[0-9]+)?}',
 				template: '<div class="full-frame" ng-include="slideUrl"></div>',
 				controller: ['$scope', 'SlideSvc', function ($scope, SlideSvc) {
 
@@ -21,6 +21,14 @@ define([], function () {
 
 					$scope.slideUrl = SlideSvc.currentSlide().url;
 				}]
-			});
+			})
+            .state('slide.demo1', {
+                url: "/alabama",
+                templateUrl: "demo1.html-8"
+            })
+            .state('slide.demo2', {
+                url: "/alaska",
+                templateUrl: "demo2.html-8"
+            });
 	}];
 });
