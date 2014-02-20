@@ -1,8 +1,51 @@
 <!doctype html>
+
+<script type="text/ng-template" id="index.html-11">
+    <div ng-controller="MyCtrl">
+        Search: <input ng-model="searchText">
+        <div>
+            <img ng-repeat="result in results" src="{{result.tbUrl}}"/>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="script.js-11">
+    angular.module('myApp', [])
+    .controller('MyCtrl', function ($scope, $http) {
+        $scope.results = [];
+        $scope.searchText = 'fuzzy monkey';
+        var url = 'https://ajax.googleapis.com/ajax/services/search/images?v=1.0&safe=active&callback=JSON_CALLBACK&q=';
+
+        $scope.$watch('searchText', function (searchText) {
+            $http.jsonp(url + searchText)
+                .then(function (response) {
+                    $scope.results = response.data.responseData.results;
+                });
+        });
+    });
+</script>
+
 <div class="container text-left">
     <h1>$http</h1>
     <p>a built in Angular service</p>
     <ul>
-        <li></li>
+        <li>This service provides an easy way to make asynchronous http requests (AJAX)</li>
+        <li>Supports any http method (GET, POST, PUT, etc)</li>
+        <li>Cross site scripting prevents using these to access other domains, but also supports JSONP</li>
+        <li>Automatically handles sending and receiving json data, just pass in the data object</li>
+        <li>Shortcut methods for the common http methods</li>
     </ul>
+
+    <div class="tabbable">
+        <div class="tab-pane" title="index.html">
+            <pre class="prettyprint linenums" ng-set-text="index.html-11" ng-html-wrap="myApp angular.js script.js"></pre>
+        </div>
+
+        <div class="tab-pane" title="script.js">
+            <pre class="prettyprint linenums" ng-set-text="script.js-11"></pre>
+        </div>
+    </div>
+
+    <h4>Demo</h4>
+    <div class="well" ng-embed-app="myApp" ng-set-html="index.html-11" ng-eval-javascript="script.js-11"></div>
 </div>

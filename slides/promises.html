@@ -1,7 +1,26 @@
 <!doctype html>
 <div class="container text-left">
     <h1>Promises</h1>
+    <p>an elegant way to handle asynchronous operations</p>
     <ul>
-        <li></li>
+        <li>Historically, many Javascript apis used callback functions to handle asynchronous responses</li>
+        <ul>
+            <li>These worked ok, but have some issues</li>
+            <li>No standardized way of doing things (how many callback functions, what are the arguments?)</li>
+            <li>Results in pyramid code - deeply nested functions</li>
+            <li>No good way to do error handling (each parent function has to handle errors of its descendants)</li>
+        </ul>
+        <li>Async apis in Angular return a promise object, which represents the result of an action that may or may not be finished yet.</li>
+        <li>The standard way to resolve a promise is with <code>.then(successCallback, errorCallback, notifyCallback)</code></li>
+        <li><code>.then()</code> itself returns a promise, which is resolved or rejected by the return value of these callbacks</li>
+        <ul>
+            <li>This is the key to chaining promises without deep nesting</li>
+            <li>Built in support for exception handling, such that <code>throw</code>ing an exception will reject the promise</li>
+            <li>Can also explicitly reject a promise using <code>return $q.reject(reason);</code></li>
+            <li>The callback can return another promise, when nested chaining is necessary</li>
+            <li>Returning any other value will be considered successful resolution</li>
+        </ul>
+        <li>New promises are created using Angular's <code>$q</code> service</li>
+        <ul><li>The implementation was influenced by <a href="https://github.com/kriskowal/q">Kris Kowal's Q</a></li></ul>
     </ul>
 </div>
