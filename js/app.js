@@ -13,7 +13,7 @@ requirejs.config({
 		'angular-animate': "../bower_components/angular-animate/angular-animate.min",
 		'angular-strap': "../bower_components/angular-strap/dist/angular-strap.min",
 		'angular-strap-tpl': "../bower_components/angular-strap/dist/angular-strap.tpl",
-		'angular.ui.router': "../bower_components/angular-ui-router/release/angular-ui-router",
+		'angular.ui.router': "../bower_components/angular-ui-router/release/angular-ui-router.min",
 		fastclick: "../bower_components/fastclick/lib/fastclick",
         prettify: "../bower_components/google-code-prettify/src/prettify"
 	},
