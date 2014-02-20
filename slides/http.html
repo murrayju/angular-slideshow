@@ -11,7 +11,7 @@
 
 <script type="text/ng-template" id="script.js-11">
     angular.module('myApp', [])
-    .controller('MyCtrl', function ($scope, $http) {
+    .controller('MyCtrl', function ($scope, $http, $log) {
         $scope.results = [];
         $scope.searchText = 'fuzzy monkey';
         var url = 'https://ajax.googleapis.com/ajax/services/search/images?v=1.0&safe=active&callback=JSON_CALLBACK&q=';
@@ -20,6 +20,8 @@
             $http.jsonp(url + searchText)
                 .then(function (response) {
                     $scope.results = response.data.responseData.results;
+                }, function (err) {
+                    $log.error('Oh no, the web request failed! ' + err);
                 });
         });
     });
